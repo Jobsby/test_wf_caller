@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
   call-workflow-passing-data:
-    uses: github.com/Jobsby/.github/workflows/reusable_workflow_remote.yml@main
+    uses: Jobsby/test_wf_called/.github/workflows/reusable_workflow_remote.yml@main
     with:
       input_name: Run workflow reusable remote with input
     secrets: inherit
