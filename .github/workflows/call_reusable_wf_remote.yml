@@ -1,0 +1,9 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  call-workflow-passing-data:
+    uses: ./.github/workflows/reusable_workflow.yml
+    with:
+      input_name: Run workflow reusable remote with input
+    secrets: inherit
