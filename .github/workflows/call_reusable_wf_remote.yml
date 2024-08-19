@@ -5,6 +5,6 @@ jobs:
   call-workflow-passing-data:
     uses: Jobsby/test_wf_called/.github/workflows/reusable_workflow_remote.yml@main
     with:
-      topic_name: iia
+      topic_name: dc-health
       input_name: Run workflow reusable remote with input
     secrets: inherit
