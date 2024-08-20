@@ -4,6 +4,8 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    env:
+      mysecrete: 'MY_CALLER_SECRET'
     steps:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
@@ -11,6 +13,11 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - run: echo "Input Parameter = ${{ inputs.input_name }}."
-      - run: echo "Secret env GCP_SECRET= ${{ secrets.GCP_SECRET }}"
-      - name: Check secretes called
+      - name: Check secretes called 1
         run: echo "Secrets my called secret = ${{ secrets.MY_CALLER_SECRET }}"
+      - name: Check secretes called 2
+        run: echo "Secrets my called secret = ${{ secrets[format('{0}', 'MY_CALLER_SECRET')] }}"
+      - name: Check secretes called 3
+        run: echo "Secrets my called secret = ${{ secrets.['MY_CALLER_SECRET'] }}"
+      - name: Check secretes called 4
+        run: echo "Secrets my called secret = ${{ secrets.['$mysecrete'] }}"
