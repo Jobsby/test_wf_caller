@@ -7,5 +7,5 @@ jobs:
     with:
       cumulus_gcp_json_key_identifier: MY_SECRET
       input_name: Run workflow reusable remote with input
-    secrets: 
-      envPAT: ${{ secrets.MY_CALLED_SECRET }}
+    secrets: inherit
+      
