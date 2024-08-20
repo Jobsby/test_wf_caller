@@ -1,0 +1,30 @@
+on:
+  workflow_call:
+    inputs:
+      input_name:
+        description: "Input name"
+        required: true
+        type: string
+      cumulus_gcp_json_key_identifier:
+        description: "Topic name"
+        required: true
+        type: string
+      
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - run: echo "Input Parameter = ${{ inputs.cumulus_gcp_json_key_identifier }}."
+      - name: Check secretes 1
+        run: echo "Secrets my called secret = ${{ secrets.MY_CALLER_SECRET }}"
+      - name: Check secretes 2
+        run: echo "Secrets my called secret = ${{ secrets[inputs.cumulus_gcp_json_key_identifier] }}"
+      - name: Check secretes 3
+        run: echo "Secrets my called secret = ${{ secrets[format('{0}', inputs.cumulus_gcp_json_key_identifier)] }}"
+      - name: Check secretes 4
+        run: echo "Secrets my called secret = ${{ secrets.MY_CALLED_SECRET }}"
