@@ -18,6 +18,6 @@ jobs:
       - name: Check secretes called 2
         run: echo "Secrets my called secret = ${{ secrets[format('{0}', 'MY_CALLER_SECRET')] }}"
       - name: Check secretes called 3
-        run: echo "Secrets my called secret = ${{ secrets.['MY_CALLER_SECRET'] }}"
+        run: echo "Secrets my called secret = ${{ secrets['MY_CALLER_SECRET'] }}"
       - name: Check secretes called 4
-        run: echo "Secrets my called secret = ${{ secrets.['$mysecrete'] }}"
+        run: echo "Secrets my called secret = ${{ secrets['$mysecrete'] }}"
