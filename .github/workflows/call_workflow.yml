@@ -1,6 +1,6 @@
 name: Normal Workflow
 run-name: ${{ github.actor }} normal workflow Actions 🚀
-on: [push]
+on: workflow_dispatch
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
