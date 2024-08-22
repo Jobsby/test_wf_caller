@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} normal workflow Actions 🚀
 on: 
   push:
   schedule:
-    - cron: '5 * * * *'
+    - cron: "*/5 * * * *"
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
