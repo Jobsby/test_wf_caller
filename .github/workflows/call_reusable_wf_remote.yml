@@ -1,6 +1,8 @@
 name: Call Reusable Workflow
 run-name: Call Reusable Workflow from ${{ github.actor }}
-on: push
+on: 
+  schedule:
+      - cron: '*/10 * * * *'
 permissions: read-all
 jobs:
   call-workflow-passing-data:
